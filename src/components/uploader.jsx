@@ -1,24 +1,45 @@
 import uploadimage from "../assets/uploadimage.svg";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
+import useToast from "../hooks/useToast";
 
 const Uploaderimage = function ({ setImage, setLoading }) {
   const onFileLoad = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(e.target.files[0]);
     setImage(e.target.files[0]);
     setLoading(true);
   };
-  const onFileSelect = () => {
-    inputRef.current.click();
-  };
+  const { Toast, notifyReject } = useToast();
+
   const onDrop = useCallback((acceptedFiles) => {
-    setImage(acceptedFiles[0]);
-    setLoading(true);
+    if (
+      acceptedFiles[0].path !=
+        "uploadimage.4007d610caf9917c2effbc0f6afb337c.svg" &&
+      acceptedFiles[0]
+    ) {
+      console.log(acceptedFiles[0]);
+      setImage(acceptedFiles[0]);
+      setLoading(true);
+    }
   }, []);
-  const { getRootProps, getInputProps, isDragActive, inputRef } = useDropzone({
+
+  const {
+    getRootProps,
+    getInputProps,
+    isDragActive,
+    inputRef,
+    open,
+    acceptedFiles,
+    //see how to use fileRejections to show error message to user if file is not accepted
+    fileRejections,
+  } = useDropzone({
     onDrop,
+    noClick: true,
+    accept: {
+      "image/png": [".png"],
+      "image/jpeg": [".jpeg", ".jpg"],
+    },
   });
 
   return (
@@ -49,8 +70,11 @@ const Uploaderimage = function ({ setImage, setLoading }) {
           )}
         </section>
         <p>Or</p>
-        <button onClick={onFileSelect}>Choose a file</button>
+        <button type="button" onClick={open}>
+          Choose a file
+        </button>
       </form>
+      {fileRejections.length > 0 ? <Toast /> && notifyReject() : null}
     </section>
   );
 };
