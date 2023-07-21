@@ -12,17 +12,20 @@ const Uploaderimage = function ({ setImage, setLoading }) {
   };
   const { Toast, notifyReject } = useToast();
 
-  const onDrop = useCallback((acceptedFiles) => {
-    if (
-      acceptedFiles[0].path !==
-        "uploadimage.4007d610caf9917c2effbc0f6afb337c.svg" &&
-      acceptedFiles[0]
-    ) {
-      console.log(acceptedFiles[0]);
-      setImage(acceptedFiles[0]);
-      setLoading(true);
-    }
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      if (
+        acceptedFiles[0].path !==
+          "uploadimage.4007d610caf9917c2effbc0f6afb337c.svg" &&
+        acceptedFiles[0]
+      ) {
+        console.log(acceptedFiles[0]);
+        setImage(acceptedFiles[0]);
+        setLoading(true);
+      }
+    },
+    [setImage, setLoading]
+  );
 
   const {
     getRootProps,
@@ -30,7 +33,7 @@ const Uploaderimage = function ({ setImage, setLoading }) {
     isDragActive,
     inputRef,
     open,
-    acceptedFiles,
+    // acceptedFiles,
     fileRejections,
   } = useDropzone({
     onDrop,
@@ -45,7 +48,8 @@ const Uploaderimage = function ({ setImage, setLoading }) {
     if (fileRejections.length > 0) {
       notifyReject();
     }
-  }, [fileRejections]);
+    // eslint-disable-next-line
+  }, [fileRejections, notifyReject]);
 
   return (
     <section id="uploader">
