@@ -1,5 +1,4 @@
 import success from "../assets/success.svg";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useToast from "../hooks/useToast";
 
@@ -15,7 +14,7 @@ const Preview = function ({ imageURL }) {
       <img src={success} alt="success" />
       <h1>Uploaded Successfully!</h1>
       <section id="photoPreview">
-        <img src={imageURL} alt="preview of uploaded photo" />
+        <img src={imageURL} alt={`cloudinary display : ${imageURL}`} />
       </section>
       <section>
         <form id="copyUrl">

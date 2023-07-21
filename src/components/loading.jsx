@@ -1,5 +1,3 @@
-import loading from "../assets/loading.gif";
-
 const Loading = function () {
   return (
     <section id="loading">

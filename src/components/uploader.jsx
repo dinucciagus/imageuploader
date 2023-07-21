@@ -14,7 +14,7 @@ const Uploaderimage = function ({ setImage, setLoading }) {
 
   const onDrop = useCallback((acceptedFiles) => {
     if (
-      acceptedFiles[0].path !=
+      acceptedFiles[0].path !==
         "uploadimage.4007d610caf9917c2effbc0f6afb337c.svg" &&
       acceptedFiles[0]
     ) {
@@ -53,7 +53,7 @@ const Uploaderimage = function ({ setImage, setLoading }) {
       <h5>File should be Jpeg, Png,...</h5>
       <form>
         <section id="dropzone" {...getRootProps({ refKey: "innerref" })}>
-          <img src={uploadimage} alt="dropzone for image to upload" />
+          <img src={uploadimage} alt="background for the dropzone" />
           <input
             type="file"
             id="fileBrowserinput"
