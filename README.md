@@ -36,9 +36,11 @@
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](./src/assets/upload.jpg)
+![screenshot](./src/assets/loading.jpg)
+![screenshot](./src/assets/copied.jpg)
 
-This project was made in response to a challenge. It's a single page application that allows users to upload images from their computers draging and dropping or just using the browse button into cloudinary and then gives them the url of the uploaded image to copy and use. The styles of the components were made with pure css copying the styles defined by devchallenges.io in the figma project. It was a fun project to practice some frontend with javascript, react js, cloudinary. I used some libraries like react-dropzone and react-Toastify. I used react hooks to manage the components cycle and developed some custom hooks to get a cleaner code for my components.
+This project was made for a challenge. It's a single page application that allows users to upload images from their computers draging and dropping or just using the browse button into cloudinary and then gives them the url of the uploaded image to copy and use. The styles of the components were made with pure css copying the styles defined by devchallenges.io in the figma project. It was a fun project to practice some frontend with javascript, react js, cloudinary. I used some libraries like react-dropzone and react-Toastify. I used react hooks to manage the components cycle and developed some custom hooks to get a cleaner code for my components.
 
 ### Built With
 
