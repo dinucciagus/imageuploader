@@ -1,5 +1,5 @@
 import uploadimage from "../assets/uploadimage.svg";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import useToast from "../hooks/useToast";
 
@@ -31,7 +31,6 @@ const Uploaderimage = function ({ setImage, setLoading }) {
     inputRef,
     open,
     acceptedFiles,
-    //see how to use fileRejections to show error message to user if file is not accepted
     fileRejections,
   } = useDropzone({
     onDrop,
@@ -41,6 +40,12 @@ const Uploaderimage = function ({ setImage, setLoading }) {
       "image/jpeg": [".jpeg", ".jpg"],
     },
   });
+
+  useEffect(() => {
+    if (fileRejections.length > 0) {
+      notifyReject();
+    }
+  }, [fileRejections]);
 
   return (
     <section id="uploader">
@@ -70,11 +75,11 @@ const Uploaderimage = function ({ setImage, setLoading }) {
           )}
         </section>
         <p>Or</p>
-        <button type="button" onClick={open}>
+        <button type="button" className="button" onClick={open}>
           Choose a file
         </button>
       </form>
-      {fileRejections.length > 0 ? <Toast /> && notifyReject() : null}
+      {fileRejections.length > 0 ? <Toast /> : null}
     </section>
   );
 };

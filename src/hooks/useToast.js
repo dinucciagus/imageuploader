@@ -14,10 +14,10 @@ const notifySuccess = () =>
   });
 
 const notifyReject = () =>
-  toast.error("Please select an image: png and jpg/jpeg!", {
+  toast.error("Please select an image: png/jpg/jpeg!", {
     position: "bottom-center",
-    autoClose: 2000,
-    hideProgressBar: true,
+    autoClose: 3000,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -29,7 +29,7 @@ const Toast = function () {
   return (
     <ToastContainer
       position="bottom-center"
-      autoClose={2000}
+      autoClose={3000}
       hideProgressBar={true}
       newestOnTop={false}
       closeOnClick

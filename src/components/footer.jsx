@@ -5,7 +5,7 @@ const Footer = function () {
       <a href="https://github.com/dinucciagus" target="_blank">
         Agustina Di Nucci
       </a>{" "}
-      - Full Stack Developer
+      - devChallenges.io
     </footer>
   );
 };
